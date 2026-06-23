@@ -137,6 +137,13 @@ header{position:sticky;top:0;z-index:100;height:52px;display:flex;align-items:ce
 footer{border-top:1px solid var(--b0);padding:20px 16px;text-align:center;font-size:12px;color:#96938C;line-height:2;}
 footer a{color:#96938C;text-decoration:none;}
 </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5RPQNBN2DZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-5RPQNBN2DZ');
+</script>
 </head>
 <body>
 
@@ -385,7 +392,7 @@ function calculate(){
 function renderHist(){
   const el=document.getElementById('histList');
   if(!hist.length){el.innerHTML='<div class="h-empty">ยังไม่มีประวัติ</div>';return;}
-  el.innerHTML=hist.map(h=>`<div class="h-item"><div class="h-tax">BMI ${h.bmi} — ${h.cat}</div><div class="h-detail">${h.detail} ${h.t}</div></div>`).join('');
+  el.innerHTML=hist.map(h=>`<div class="h-item"><div class="h-tax">BMI ${h.bmi} (${h.cat})</div><div class="h-detail">${h.detail} ${h.t}</div></div>`).join('');
 }
 function clearHist(){hist.length=0;try{localStorage.removeItem('kamnuan_bmiHist');}catch(e){}renderHist();}
 renderHist();
